@@ -18,9 +18,9 @@ It's main features are:
 
 ## Screenshots
 
-![https://fouquet.me/RFAboutView/screenshot1.png](Screenshot 1)
-![https://fouquet.me/RFAboutView/screenshot2.png](Screenshot 1)
-![https://fouquet.me/RFAboutView/screenshot3.png](Screenshot 1)
+<img src = "https://fouquet.me/RFAboutView/screenshot1.png" alt="Screenshot 1" width="440" height="783" />
+<img src = "https://fouquet.me/RFAboutView/screenshot2.png" alt="Screenshot 2" width="440" height="783" />
+<img src = "https://fouquet.me/RFAboutView/screenshot3.png" alt="Screenshot 3" width="440" height="783" />
 
 ## Usage
 
@@ -70,6 +70,14 @@ post_install do |installer|
 end
 ```
 Note that the directory names can differ based on whether or not you are using different targets or not. Check with your local project directory and change the snippet accordingly. Also don't forget to add the `Acknowledgements.plist` file to your Xcode project.
+
+## Localisation and changing the default text
+
+If you want to localise RFAboutView for your app or if you would like to change the default texts, you can use the [RFAboutView.strings](https://github.com/fouquet/RFAboutView/blob/master/Example/RFAboutView.strings) file in the example app as a template.
+
+## Customization options
+
+RFAboutView contains many customization options. See the file ``RFAboutViewController.h`` for a full documentation.
 
 ## Example Project
 

@@ -387,13 +387,13 @@
 
 - (void)email {
     NSString *iosVersion = [UIDevice currentDevice].systemVersion;
-    NSString *device = [UIDevice currentDevice].name;
+    NSString *device = [UIDevice currentDevice].model;
     NSString *deviceString = [self platformRawString];
     NSString *lang = [NSLocale preferredLanguages][0];
     NSString *messageString = nil;
 
     if (self.includeDiagnosticInformationInEmail) {
-        messageString = [NSString stringWithFormat:NSLocalizedString(@"<p>[Please insert your message here]</p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Suport Information</strong></p></p>%@ Version %@ (%@)<br>%@ (%@)<br>iOS %@ (%@)</p><hr>", @"Prefilled Email message text"), self.appName, self.appVersion, self.appBuild, device, deviceString, iosVersion, lang];
+        messageString = [NSString stringWithFormat:NSLocalizedString(@"<p>[Please insert your message here]</p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Support Information</strong></p></p>%@ Version %@ (%@)<br>%@ (%@)<br>iOS %@ (%@)</p><hr>", @"Prefilled Email message text"), self.appName, self.appVersion, self.appBuild, device, deviceString, iosVersion, lang];
     }
     NSString *subject = [NSString stringWithFormat:@"%@ %@", self.appName, self.appVersion];
     

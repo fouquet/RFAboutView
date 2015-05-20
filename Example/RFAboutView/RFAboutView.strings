@@ -13,7 +13,7 @@
 "%@ makes use of the following third party libraries. Many thanks to the developers making them available!" = "%@ makes use of the following third party libraries. Many thanks to the developers making them available!";
 
 /* Prefilled Email message text */
-"<p>[Please insert your message here]</p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Suport Information</strong></p></p>%@ Version %@ (%@)<br>%@ (%@)<br>iOS %@ (%@)</p><hr>" = "<p><< Please insert your message here >></p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Suport Information</strong></p></p>%1$@ Version %2$@ (%3$@)<br>%4$@ (%5$@)<br>iOS %6$@ (%7$@)</p><hr>";
+"<p>[Please insert your message here]</p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Support Information</strong></p></p>%@ Version %@ (%@)<br>%@ (%@)<br>iOS %@ (%@)</p><hr>" = "<p><< Please insert your message here >></p><p><em>For support inquiries, please include the following information. These make it easier for me to help you. Thank you!</em><p><hr><p><strong>Suport Information</strong></p></p>%1$@ Version %2$@ (%3$@)<br>%4$@ (%5$@)<br>iOS %6$@ (%7$@)</p><hr>";
 
 /* UINavigationBar Title */
 "About" = "About";
