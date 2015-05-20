@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'RFAboutView', :exclusive => true do
+  pod "RFAboutView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "RFAboutView", :path => "../"
+
+  
+end
