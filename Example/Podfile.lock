@@ -1,0 +1,14 @@
+PODS:
+  - RFAboutView (1.0.0)
+
+DEPENDENCIES:
+  - RFAboutView (from `../`)
+
+EXTERNAL SOURCES:
+  RFAboutView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RFAboutView: 709356e90d03f29b234a3b4819d3004a75f25be2
+
+COCOAPODS: 0.37.0

@@ -1,38 +1,32 @@
-#
-# Be sure to run `pod lib lint RFAboutView.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "RFAboutView"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of RFAboutView."
+  s.version          = "1.0.0"
+  s.summary          = "A drop-in 'about view' offering information about an app, the pods used and diagnostic debug information."
   s.description      = <<-DESC
-                       An optional longer description of RFAboutView
+**RFAboutView** is an easy, drop-in solution to display copyright, support, privacy and other information while also automatically crediting the developers of third-party Cocoapods. RFAboutView uses AutoLayout and can be used both for iPhone and iPad apps.
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/RFAboutView"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+It's main features are:
+
+* Displays app name and copyright information.
+* Displays an optional link to a website, opening in Safari.
+* Displays an optional link to an Email address.
+* If the user clicks on the Email link, a `MFMailComposeViewController` opens, (optionally) prefilled with diagnostic information useful for support: App name and version, current device, current iOS version, preferred device language.
+* Displays additional buttons with further information (for example your TOS or Privacy Policy) that you can specify.
+* Displays acknowledgements for all Cocoapods used in the project. The acknowledgements file automatically created by Cocoapods is used for this, requiring almost no work on your part. See the "Automatic acknowledgements" below for more information.
+* Clean and modern design with lots of customization options.
+                        DESC
+  s.homepage         = "https://github.com/fouquet/RFAboutView"
+s.screenshots      = "https://www.fouquet.me/RFAboutView/screenshot1.png", "https://www.fouquet.me/RFAboutView/screenshot2.png", "https://www.fouquet.me/RFAboutView/screenshot3.png"
   s.license          = 'MIT'
-  s.author           = { "René Fouquet" => "fouquet@swipe.de" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/RFAboutView.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "René Fouquet" => "mail@fouquet.me" }
+  s.source           = { :git => "https://github.com/fouquet/RFAboutView.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/renefouquet'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'RFAboutView' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

@@ -7,6 +7,7 @@
 //
 
 #import "RFViewController.h"
+#import "RFAboutViewController.h"
 
 @interface RFViewController ()
 
@@ -25,5 +26,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)showAbout:(id)sender {
+    // First create a UINavigationController (or use your existing one).
+    // The RFAboutView needs to be wrapped in a UINavigationController.
+    
+    UINavigationController *aboutNavigation = [UINavigationController new];
+
+    // Initialise the RFAboutView:
+    
+    RFAboutViewController *aboutView = [[RFAboutViewController alloc] initWithAppName:nil appVersion:nil appBuild:nil copyrightHolderName:@"ExampleApp, Inc." contactEmail:@"mail@example.com" titleForEmail:@"Contact us" websiteURL:[NSURL URLWithString:@"http://example.com"] titleForWebsiteURL:@"Our Website" andPublicationYear:nil];
+    
+    // Set some additional options:
+    aboutView.headerBackgroundColor = [UIColor blackColor];
+    aboutView.headerTextColor = [UIColor whiteColor];
+    aboutView.blurStyle = UIBlurEffectStyleDark;
+    aboutView.headerBackgroundImage = [UIImage imageNamed:@"about_header_bg.jpg"];
+
+    // Add an additional button:
+    [aboutView addAdditionalButtonWithTitle:@"Privacy Policy" andContent:@"Here's the privacy policy"];
+
+    // Add the aboutView to the NavigationController:
+    [aboutNavigation setViewControllers:@[aboutView]];
+    
+    // Present the navigation controller:
+    [self presentViewController:aboutNavigation animated:YES completion:nil];
+}
+
 
 @end
