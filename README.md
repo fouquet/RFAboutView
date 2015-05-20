@@ -18,9 +18,8 @@ It's main features are:
 
 ## Screenshots
 
-<img src = "https://fouquet.me/RFAboutView/screenshot1.png" alt="Screenshot 1" width="440" height="783" />
-<img src = "https://fouquet.me/RFAboutView/screenshot2.png" alt="Screenshot 2" width="440" height="783" />
-<img src = "https://fouquet.me/RFAboutView/screenshot3.png" alt="Screenshot 3" width="440" height="783" />
+<img src = "https://fouquet.me/RFAboutView/screenshot1.png" alt="Screenshot 1" width="300" height="534" />
+<img src = "https://fouquet.me/RFAboutView/screenshot2.png" alt="Screenshot 2" width="300" height="534" />
 
 ## Usage
 
