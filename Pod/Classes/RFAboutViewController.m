@@ -55,6 +55,9 @@
         _tintColor = [UIColor blackColor];
         _headerTextColor = [UIColor blackColor];
         _backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1];
+        _acknowledgementsHeaderColor = [UIColor blackColor];
+        _tableViewBackgroundColor = [UIColor whiteColor];
+        _tableViewTextColor = [UIColor blackColor];
         
         _acknowledgementsFilename = @"Acknowledgements";
         
@@ -205,6 +208,7 @@
     tableHeaderLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.375]];
     tableHeaderLabel.translatesAutoresizingMaskIntoConstraints = NO;
     tableHeaderLabel.numberOfLines = 0;
+    tableHeaderLabel.textColor = self.acknowledgementsHeaderColor;
     tableHeaderLabel.backgroundColor = [UIColor clearColor];
     tableHeaderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ makes use of the following third party libraries. Many thanks to the developers making them available!",@"Acknowlegdments header title"),self.appName];
     if (self.showAcknowledgements) {
@@ -349,6 +353,8 @@
             title = self.acknowledgements[(NSUInteger)indexPath.row][@"title"];
         }
         cell.textLabel.text = title;
+        cell.backgroundColor = self.tableViewBackgroundColor;
+        cell.textLabel.textColor = self.tableViewTextColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
@@ -423,7 +429,7 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:^{
         if (result == MFMailComposeResultFailed) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Message Failed!",@"Sending email message failed") message:NSLocalizedString(@"Your email has failed to send.",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Dismiss",@"Dismiss error message") otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Message Failed!",@"Sending email message failed") message:NSLocalizedString(@"Your email has failed to send.",@"Sending email message failed body") delegate:self cancelButtonTitle:NSLocalizedString(@"Dismiss",@"Dismiss error message") otherButtonTitles:nil];
             [alert show];
         }
     }];

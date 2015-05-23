@@ -37,6 +37,21 @@
 @property (nonatomic, strong) UIColor *headerBorderColor;
 
 /*!
+ *  Acknowledgements header text color. Defaults to black color.
+ */
+@property (nonatomic, strong) UIColor *acknowledgementsHeaderColor;
+
+/*!
+ *  TableView background color. Defaults to white color.
+ */
+@property (nonatomic, strong) UIColor *tableViewBackgroundColor;
+
+/*!
+ *  TableView text color. Defaults to black color.
+ */
+@property (nonatomic, strong) UIColor *tableViewTextColor;
+
+/*!
  *  The background of the about header. Defaults to nil.
  */
 @property (nonatomic, strong) UIImage *headerBackgroundImage;
