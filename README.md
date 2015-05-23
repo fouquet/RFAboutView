@@ -6,14 +6,16 @@
 
 **RFAboutView** is an easy, drop-in solution to display copyright, support, privacy and other information while also automatically crediting the developers of third-party Cocoapods. RFAboutView uses AutoLayout and can be used both for iPhone and iPad apps.
 
-It's main features are:
+**Note**: This is the Objective-C version of RFAboutView. There is also a version [written in Swift available](https://github.com/fouquet/RFAboutView-Swift). Apart from minor implementation differences, both versions have identical feature sets and behave the same way.
+
+Its main features are:
 
 * Displays app name and copyright information.
 * Displays an optional link to a website, opening in Safari.
 * Displays an optional link to an Email address.
 * If the user clicks on the Email link, a `MFMailComposeViewController` opens, (optionally) prefilled with diagnostic information useful for support: App name and version, current device, current iOS version, preferred device language.
 * Displays additional buttons with further information (for example your TOS or Privacy Policy) that you can specify.
-* Displays acknowledgements for all Cocoapods used in the project. The acknowledgements file automatically created by Cocoapods is used for this, requiring almost no work on your part. See the "Automatic acknowledgements" below for more information.
+* Displays acknowledgements for all Cocoapods used in the project. The acknowledgements file automatically created by Cocoapods is used for this, requiring almost no work on your part. See "Automatic acknowledgements" below for more information.
 * Clean and modern design with lots of customization options.
 
 ## Screenshots
@@ -58,7 +60,7 @@ aboutView.headerBackgroundImage = [UIImage imageNamed:@"about_header_bg.jpg"];
 
 ## Automatic acknowledgements
 
-Every time you run `pod update` or `pod install`, Cocoapods automatically generates a file containing copyright and license information for all Cocoapods used in the project. RFAboutView uses this file to display the acknowledgements. To use it, copy the file `Pods-<Target Name>-acknowledgements.plist` found in the `<Project Root>/Pods/Target Support Files/Pods-<Target Name>` directory to your project and call it `Acknowledgements.plist`. You can also use a different name if you would like – if you do, set the `acknowledgementsFilename` property of `RFAboutViewController` to the new name.
+Every time you run `pod update` or `pod install`, Cocoapods automatically generates a file containing copyright and license information for all Cocoapods used in the project. RFAboutView uses this file to display the acknowledgements. To use it, copy the file `Pods-<Target Name>-acknowledgements.plist` found in the `<Project Root>/Pods/Target Support Files/Pods-<Target Name>` directory to your project and call it `Acknowledgements.plist`. You can also use a different name if you would like – if you do, set the `acknowledgementsFilename` property of `RFAboutViewController` to the new name (without plist).
 
 To automate this, you can add the following snippet to your `Podfile`:
 
@@ -68,7 +70,7 @@ post_install do |installer|
   FileUtils.cp_r('Pods/Target Support Files/Pods-<Target Name>/Pods-<Target Name>-acknowledgements.plist', '<Project Dir>/Acknowledgements.plist', :remove_destination => true)
 end
 ```
-Note that the directory names can differ based on whether or not you are using different targets or not. Check with your local project directory and change the snippet accordingly. Also don't forget to add the `Acknowledgements.plist` file to your Xcode project.
+Note that the directory names can differ based on the setup of your project and whether or not you are using different targets. Check with your local project directory and change the snippet accordingly. Also don't forget to add the `Acknowledgements.plist` file to your Xcode project.
 
 ## Localisation and changing the default text
 
