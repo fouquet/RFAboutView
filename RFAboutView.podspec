@@ -1,19 +1,19 @@
 Pod::Spec.new do |s|
   s.name             = "RFAboutView"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "A drop-in 'about view' offering information about an app, the pods used and diagnostic debug information."
   s.description      = <<-DESC
 **RFAboutView** is an easy, drop-in solution to display copyright, support, privacy and other information while also automatically crediting the developers of third-party Cocoapods. RFAboutView uses AutoLayout and can be used both for iPhone and iPad apps.
 
-It's main features are:
+Its main features are:
 
 * Displays app name and copyright information.
 * Displays an optional link to a website, opening in Safari.
 * Displays an optional link to an Email address.
-* If the user clicks on the Email link, a `MFMailComposeViewController` opens, (optionally) prefilled with diagnostic information useful for support: App name and version, current device, current iOS version, preferred device language.
+* If the user clicks on the Email link, a `MFMailComposeViewController` opens, (optionally) pre-filled with diagnostic information useful for support: App name and version, current device, current iOS version, preferred device language.
 * Displays additional buttons with further information (for example your TOS or Privacy Policy) that you can specify.
 * Displays acknowledgements for all Cocoapods used in the project. The acknowledgements file automatically created by Cocoapods is used for this, requiring almost no work on your part. See the "Automatic acknowledgements" below for more information.
-* Clean and modern design with lots of customization options.
+* Clean and modern design with lots of customisation options.
                         DESC
   s.homepage         = "https://github.com/fouquet/RFAboutView"
 s.screenshots      = "https://www.fouquet.me/RFAboutView/screenshot1.png", "https://www.fouquet.me/RFAboutView/screenshot2.png", "https://www.fouquet.me/RFAboutView/screenshot3.png"
