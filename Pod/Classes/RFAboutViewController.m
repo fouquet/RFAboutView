@@ -59,6 +59,11 @@
         _tableViewBackgroundColor = [UIColor whiteColor];
         _tableViewTextColor = [UIColor blackColor];
         
+        self.navigationViewBackgroundColor = self.navigationController.view.backgroundColor; // Set from system default
+        self.navigationBarBarTintColor = self.navigationController.navigationBar.barTintColor; // Set from system default
+        self.navigationBarTintColor = self.tintColor; // Set from system default
+        self.navigationBarTitleTextColor = [UIColor blackColor];
+        
         _acknowledgementsFilename = @"Acknowledgements";
         
         _showAcknowledgements = YES;
@@ -104,6 +109,9 @@
     self.view.backgroundColor = self.backgroundColor;
     self.view.tintColor = self.tintColor;
     self.navigationItem.leftBarButtonItem.tintColor = self.view.tintColor;
+    self.navigationController.view.backgroundColor = self.navigationViewBackgroundColor;
+    self.navigationController.navigationBar.barTintColor = self.navigationBarBarTintColor;
+    self.navigationController.navigationBar.tintColor = self.navigationBarTintColor;
     
     UIScrollView *mainScrollView = [UIScrollView new];
     mainScrollView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -314,6 +322,8 @@
     [super viewWillAppear:animated];
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:self.closeButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(close)];
+
+    self.navigationController.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName: self.navigationBarTitleTextColor };
     
     self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.title = NSLocalizedString(@"About", @"UINavigationBar Title");

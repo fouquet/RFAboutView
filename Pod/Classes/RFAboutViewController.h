@@ -41,6 +41,26 @@
  */
 @property (nonatomic, strong) UIColor *acknowledgementsHeaderColor;
 
+/**
+ *  Background Color of the Navigation Bar.
+ */
+@property (nonatomic, strong) UIColor *navigationViewBackgroundColor;
+
+/**
+ *  Bar Tint Color of the Navigation Bar.
+ */
+@property (nonatomic, strong) UIColor *navigationBarBarTintColor;
+
+/**
+ *  Tint color of the Navigation Bar. Defaults to the view's default tint color.
+ */
+@property (nonatomic, strong) UIColor *navigationBarTintColor;
+
+/**
+ *  Color of the Navigation Bar Title. Defaults to blackColor.
+ */
+@property (nonatomic, strong) UIColor *navigationBarTitleTextColor;
+
 /*!
  *  TableView background color. Defaults to white color.
  */
