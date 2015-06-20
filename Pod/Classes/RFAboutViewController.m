@@ -356,6 +356,12 @@
 
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
+        if (self.tableViewCellSelectColor) {
+            UIView *bgColorView = [[UIView alloc] init];
+            bgColorView.backgroundColor = self.tableViewCellSelectColor;
+            [cell setSelectedBackgroundView:bgColorView];
+        }
+        
         NSString *title = nil;
         if (tableView.tag == 0) {
             title = self.additionalButtons[(NSUInteger)indexPath.row][@"title"];

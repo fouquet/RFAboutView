@@ -66,6 +66,11 @@
  */
 @property (nonatomic, strong) UIColor *tableViewBackgroundColor;
 
+/**
+ *  Color of the a selected tableview cell.
+ */
+@property (nonatomic, strong) UIColor *tableViewCellSelectColor;
+
 /*!
  *  TableView text color. Defaults to black color.
  */
