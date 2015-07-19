@@ -8,6 +8,7 @@
 
 #import "RFAboutViewController.h"
 #import "RFAboutViewDetailViewController.h"
+#import "M2DWebViewController.h"
 #include <sys/sysctl.h>
 
 @interface RFAboutViewController ()
@@ -68,6 +69,7 @@
         
         _showAcknowledgements = YES;
         _blurHeaderBackground = YES;
+		_webBuiltIn = YES;
         _includeDiagnosticInformationInEmail = YES;
         _showsScrollIndicator = YES;
         
@@ -336,6 +338,13 @@
                                         }];
 }
 
+- (void)addAdditionalButtonWithTitle:(NSString *)title andURL:(NSURL *)content{
+	[self.additionalButtons addObject:@{
+										@"title":title,
+										@"url":content
+										}];
+}
+
 #pragma mark - UITableView delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -393,18 +402,35 @@
         theDict = self.acknowledgements[(NSUInteger)indexPath.row];
     }
 
-    RFAboutViewDetailViewController *viewController = [[RFAboutViewDetailViewController alloc] initWithDictionary:theDict];
-    viewController.showVerticalScrollingIndicator = self.showsScrollIndicator;
-    viewController.backgroundColor = self.backgroundColor;
-    viewController.tintColor = self.tintColor;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [self.navigationController pushViewController:viewController animated:YES];
+	if([[theDict allKeys]containsObject:@"content"]){
+		RFAboutViewDetailViewController *viewController = [[RFAboutViewDetailViewController alloc] initWithDictionary:theDict];
+		viewController.showVerticalScrollingIndicator = self.showsScrollIndicator;
+		viewController.backgroundColor = self.backgroundColor;
+		viewController.tintColor = self.tintColor;
+		self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+		[self.navigationController pushViewController:viewController animated:YES];
+	}else if([[theDict allKeys]containsObject:@"url"]){
+		//open internal web view
+		[self openURLinBuiltInBrowser:theDict[@"url"]];
+	}
 }
 
 #pragma mark - Action methods
 
 - (void)goToWebsite {
-    [[UIApplication sharedApplication] openURL:self.websiteURL];
+	if(_webBuiltIn){
+		[self openURLinBuiltInBrowser:self.websiteURL];
+	}else{
+		[[UIApplication sharedApplication] openURL:self.websiteURL];
+	}
+}
+
+-(void)openURLinBuiltInBrowser:(NSURL *)website{
+	if(!_webViewController){
+		_webViewController = [[M2DWebViewController alloc] initWithURL:website type:M2DWebViewTypeAutoSelect];
+	}
+	[_webViewController loadURL:website];
+	[self.navigationController pushViewController:_webViewController animated:YES];
 }
 
 - (void)email {

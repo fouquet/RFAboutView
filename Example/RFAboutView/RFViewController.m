@@ -45,6 +45,7 @@
 
     // Add an additional button:
     [aboutView addAdditionalButtonWithTitle:@"Privacy Policy" andContent:@"Here's the privacy policy"];
+	[aboutView addAdditionalButtonWithTitle:@"Test" andURL:[NSURL URLWithString:@"http://www.google.com"]];
 
     // Add the aboutView to the NavigationController:
     [aboutNavigation setViewControllers:@[aboutView]];
