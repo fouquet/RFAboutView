@@ -331,17 +331,19 @@
     self.navigationItem.title = NSLocalizedString(@"About", @"UINavigationBar Title");
 }
 
-- (void)addAdditionalButtonWithTitle:(NSString *)title andContent:(NSString *)content {
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andContent:(NSString *)content {
     [self.additionalButtons addObject:@{
                                         @"title":title,
-                                        @"content":content
+                                        @"content":content,
+										@"subtitle":subtitle
                                         }];
 }
 
-- (void)addAdditionalButtonWithTitle:(NSString *)title andURL:(NSURL *)content{
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andURL:(NSURL *)content{
 	[self.additionalButtons addObject:@{
 										@"title":title,
-										@"url":content
+										@"url":content,
+										@"subtitle":subtitle
 										}];
 }
 
@@ -360,7 +362,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.688]];
 
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -372,12 +374,15 @@
         }
         
         NSString *title = nil;
+		NSString *subtitle = nil;
         if (tableView.tag == 0) {
             title = self.additionalButtons[(NSUInteger)indexPath.row][@"title"];
+			subtitle = self.additionalButtons[(NSUInteger)indexPath.row][@"subtitle"];
         } else {
             title = self.acknowledgements[(NSUInteger)indexPath.row][@"title"];
         }
         cell.textLabel.text = title;
+		cell.detailTextLabel.text = subtitle;
         cell.backgroundColor = self.tableViewBackgroundColor;
         cell.textLabel.textColor = self.tableViewTextColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
