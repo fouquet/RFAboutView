@@ -220,8 +220,9 @@
     tableHeaderLabel.numberOfLines = 0;
     tableHeaderLabel.textColor = self.acknowledgementsHeaderColor;
     tableHeaderLabel.backgroundColor = [UIColor clearColor];
-    tableHeaderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ makes use of the following third party libraries. Many thanks to the developers making them available!",@"Acknowlegdments header title"),self.appName];
+
     if (self.showAcknowledgements) {
+		tableHeaderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ makes use of the following third party libraries. Many thanks to the developers making them available!",@"Acknowlegdments header title"),self.appName];
         [scrollViewContainer addSubview:tableHeaderLabel];
     }
     [tableHeaderLabel sizeToFit];

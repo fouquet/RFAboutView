@@ -42,6 +42,7 @@
     aboutView.headerTextColor = [UIColor whiteColor];
     aboutView.blurStyle = UIBlurEffectStyleDark;
     aboutView.headerBackgroundImage = [UIImage imageNamed:@"about_header_bg.jpg"];
+	aboutView.showAcknowledgements = NO;
 
     // Add an additional button:
     [aboutView addAdditionalButtonWithTitle:@"Privacy Policy" subtitle:@"subtitle" andContent:@"Here's the privacy policy"];
