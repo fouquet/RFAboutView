@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
-@class M2DWebViewController;
+
+@protocol RFAboutViewDelegate;
 
 @interface RFAboutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 
@@ -163,14 +164,9 @@
 @property (nonatomic, strong) NSString *pubYear;
 
 /**
- *  If YES i'll use te built in browser, or Safari app. Default to YES.
+ *  Protocol
  */
-@property (nonatomic, assign) BOOL webBuiltIn;
-
-/**
- *  The built in browser view controller.
- */
-@property (nonatomic, strong) M2DWebViewController *webViewController;
+@property (nonatomic, weak) id<RFAboutViewDelegate> delegate;
 
 /*!
  *  Initializes the RFAboutViewController with the given parameters.
@@ -211,5 +207,12 @@
  *  @param content Thw website to display in webview
  */
 - (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andURL:(NSURL *)content;
+
+@end
+
+@protocol RFAboutViewDelegate <NSObject>
+
+@optional
+-(void)willOpenUrl:(NSURL *)website;
 
 @end

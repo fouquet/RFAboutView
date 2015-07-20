@@ -69,7 +69,6 @@
         
         _showAcknowledgements = YES;
         _blurHeaderBackground = YES;
-		_webBuiltIn = YES;
         _includeDiagnosticInformationInEmail = YES;
         _showsScrollIndicator = YES;
         
@@ -416,27 +415,23 @@
 		self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 		[self.navigationController pushViewController:viewController animated:YES];
 	}else if([[theDict allKeys]containsObject:@"url"]){
-		//open internal web view
-		[self openURLinBuiltInBrowser:theDict[@"url"]];
+		if (self.delegate && [self.delegate respondsToSelector:@selector(willOpenUrl:)]) {
+			//open internal web view
+			[self.delegate willOpenUrl:theDict[@"url"]];
+		}else{
+			[[UIApplication sharedApplication] openURL:theDict[@"url"]];
+		}
 	}
 }
 
 #pragma mark - Action methods
 
 - (void)goToWebsite {
-	if(_webBuiltIn){
-		[self openURLinBuiltInBrowser:self.websiteURL];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(willOpenUrl:)]) {
+		[self.delegate willOpenUrl:self.websiteURL];
 	}else{
 		[[UIApplication sharedApplication] openURL:self.websiteURL];
 	}
-}
-
--(void)openURLinBuiltInBrowser:(NSURL *)website{
-	if(!_webViewController){
-		_webViewController = [[M2DWebViewController alloc] initWithURL:website type:M2DWebViewTypeAutoSelect];
-	}
-	[_webViewController loadURL:website];
-	[self.navigationController pushViewController:_webViewController animated:YES];
 }
 
 - (void)email {
