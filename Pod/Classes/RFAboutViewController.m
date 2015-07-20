@@ -8,7 +8,6 @@
 
 #import "RFAboutViewController.h"
 #import "RFAboutViewDetailViewController.h"
-#import "M2DWebViewController.h"
 #include <sys/sysctl.h>
 
 @interface RFAboutViewController ()

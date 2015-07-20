@@ -28,10 +28,6 @@
 		C37828DA8950A9D6ED9AB4B3 /* RFAboutViewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 414203204E2C77C2565A703B /* RFAboutViewDetailViewController.m */; };
 		E4186E16429C92B8CFA7EBDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94B3C036F5571DDDDAD0172 /* Foundation.framework */; };
 		E50C6A9AA3946537ED276ED6 /* RFAboutViewCloseX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C33AD480E4C67A2075634A /* RFAboutViewCloseX@2x.png */; };
-		E55504721B5BE39F0057113A /* M2DWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E55504701B5BE39F0057113A /* M2DWebViewController.h */; };
-		E55504731B5BE39F0057113A /* M2DWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E55504701B5BE39F0057113A /* M2DWebViewController.h */; };
-		E55504741B5BE39F0057113A /* M2DWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55504711B5BE39F0057113A /* M2DWebViewController.m */; };
-		E55504751B5BE39F0057113A /* M2DWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55504711B5BE39F0057113A /* M2DWebViewController.m */; };
 		F1D9C3A42A6A4A7917488376 /* RFAboutViewCloseX.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6BB41960DABC85DA3DF597 /* RFAboutViewCloseX.png */; };
 /* End PBXBuildFile section */
 
@@ -99,8 +95,6 @@
 		D7206587A1A998C77039DD36 /* Pods-RFAboutView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RFAboutView.release.xcconfig"; sourceTree = "<group>"; };
 		D98DAFF614C0B92369E2D1A8 /* Pods-Tests-RFAboutView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-RFAboutView-prefix.pch"; path = "../Pods-Tests-RFAboutView/Pods-Tests-RFAboutView-prefix.pch"; sourceTree = "<group>"; };
 		E18B084C56BCCF08061CE8A2 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		E55504701B5BE39F0057113A /* M2DWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DWebViewController.h; sourceTree = "<group>"; };
-		E55504711B5BE39F0057113A /* M2DWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DWebViewController.m; sourceTree = "<group>"; };
 		F07A6C47A7C6FA64FA412290 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		FAD02EEC48CC03C3A022FC83 /* Pods-RFAboutView-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RFAboutView-resources.sh"; sourceTree = "<group>"; };
 		FB69C78A5DD912D3CF9343C1 /* libPods-RFAboutView-RFAboutView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RFAboutView-RFAboutView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,8 +155,6 @@
 		16E2320BA059B358165BE968 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E55504701B5BE39F0057113A /* M2DWebViewController.h */,
-				E55504711B5BE39F0057113A /* M2DWebViewController.m */,
 				5FD7C34CB0BA3A860329858C /* RFAboutViewController.h */,
 				A3F921075941AE3BCAFD931F /* RFAboutViewController.m */,
 				65C90CB9C24248511862B91D /* RFAboutViewDetailViewController.h */,
@@ -327,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AABFA454084FB5C6D2C67671 /* RFAboutViewController.h in Headers */,
-				E55504721B5BE39F0057113A /* M2DWebViewController.h in Headers */,
 				1FC69374414FC0BD7F317AE3 /* RFAboutViewDetailViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +328,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4D1C0D6BCC11BC67B8F767 /* RFAboutViewController.h in Headers */,
-				E55504731B5BE39F0057113A /* M2DWebViewController.h in Headers */,
 				8E039C0C093E14F15F626FFC /* RFAboutViewDetailViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,7 +528,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E56230BEFCC49C78E7D4D85 /* Pods-RFAboutView-RFAboutView-dummy.m in Sources */,
-				E55504741B5BE39F0057113A /* M2DWebViewController.m in Sources */,
 				04FECC9C47C0352C16786A6E /* RFAboutViewController.m in Sources */,
 				6EAA1D4FB0E9D16C357AA9F4 /* RFAboutViewDetailViewController.m in Sources */,
 			);
@@ -549,7 +538,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				79000B58665F9FE90997E7B9 /* Pods-Tests-RFAboutView-dummy.m in Sources */,
-				E55504751B5BE39F0057113A /* M2DWebViewController.m in Sources */,
 				BFF23D229F11EF88722777E5 /* RFAboutViewController.m in Sources */,
 				C37828DA8950A9D6ED9AB4B3 /* RFAboutViewDetailViewController.m in Sources */,
 			);
