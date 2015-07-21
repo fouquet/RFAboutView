@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
+@protocol RFAboutViewDelegate;
+
 @interface RFAboutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 
 /*!
@@ -161,6 +163,11 @@
  */
 @property (nonatomic, strong) NSString *pubYear;
 
+/**
+ *  Protocol
+ */
+@property (nonatomic, weak) id<RFAboutViewDelegate> delegate;
+
 /*!
  *  Initializes the RFAboutViewController with the given parameters.
  *
@@ -192,6 +199,20 @@
  *  @param title   The title of the button
  *  @param content The text to display in the detail view
  */
-- (void)addAdditionalButtonWithTitle:(NSString *)title andContent:(NSString *)content;
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andContent:(NSString *)content;
+/**
+ *  Adds an additional button (as a TableView cell) below the header. If clicked it will open the browser
+ *	@see webBuiltIn
+ *  @param title   The title of the button
+ *  @param content Thw website to display in webview
+ */
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andURL:(NSURL *)content;
+
+@end
+
+@protocol RFAboutViewDelegate <NSObject>
+
+@optional
+-(void)willOpenUrl:(NSURL *)website;
 
 @end

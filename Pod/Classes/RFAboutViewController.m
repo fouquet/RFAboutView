@@ -218,8 +218,9 @@
     tableHeaderLabel.numberOfLines = 0;
     tableHeaderLabel.textColor = self.acknowledgementsHeaderColor;
     tableHeaderLabel.backgroundColor = [UIColor clearColor];
-    tableHeaderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ makes use of the following third party libraries. Many thanks to the developers making them available!",@"Acknowlegdments header title"),self.appName];
+
     if (self.showAcknowledgements) {
+		tableHeaderLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ makes use of the following third party libraries. Many thanks to the developers making them available!",@"Acknowlegdments header title"),self.appName];
         [scrollViewContainer addSubview:tableHeaderLabel];
     }
     [tableHeaderLabel sizeToFit];
@@ -329,11 +330,20 @@
     self.navigationItem.title = NSLocalizedString(@"About", @"UINavigationBar Title");
 }
 
-- (void)addAdditionalButtonWithTitle:(NSString *)title andContent:(NSString *)content {
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andContent:(NSString *)content {
     [self.additionalButtons addObject:@{
                                         @"title":title,
-                                        @"content":content
+                                        @"content":content,
+										@"subtitle":subtitle
                                         }];
+}
+
+- (void)addAdditionalButtonWithTitle:(NSString *)title subtitle:(NSString *)subtitle andURL:(NSURL *)content{
+	[self.additionalButtons addObject:@{
+										@"title":title,
+										@"url":content,
+										@"subtitle":subtitle
+										}];
 }
 
 #pragma mark - UITableView delegate methods
@@ -351,7 +361,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.688]];
 
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
@@ -363,12 +373,15 @@
         }
         
         NSString *title = nil;
+		NSString *subtitle = nil;
         if (tableView.tag == 0) {
             title = self.additionalButtons[(NSUInteger)indexPath.row][@"title"];
+			subtitle = self.additionalButtons[(NSUInteger)indexPath.row][@"subtitle"];
         } else {
             title = self.acknowledgements[(NSUInteger)indexPath.row][@"title"];
         }
         cell.textLabel.text = title;
+		cell.detailTextLabel.text = subtitle;
         cell.backgroundColor = self.tableViewBackgroundColor;
         cell.textLabel.textColor = self.tableViewTextColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -393,18 +406,31 @@
         theDict = self.acknowledgements[(NSUInteger)indexPath.row];
     }
 
-    RFAboutViewDetailViewController *viewController = [[RFAboutViewDetailViewController alloc] initWithDictionary:theDict];
-    viewController.showVerticalScrollingIndicator = self.showsScrollIndicator;
-    viewController.backgroundColor = self.backgroundColor;
-    viewController.tintColor = self.tintColor;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [self.navigationController pushViewController:viewController animated:YES];
+	if([[theDict allKeys]containsObject:@"content"]){
+		RFAboutViewDetailViewController *viewController = [[RFAboutViewDetailViewController alloc] initWithDictionary:theDict];
+		viewController.showVerticalScrollingIndicator = self.showsScrollIndicator;
+		viewController.backgroundColor = self.backgroundColor;
+		viewController.tintColor = self.tintColor;
+		self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+		[self.navigationController pushViewController:viewController animated:YES];
+	}else if([[theDict allKeys]containsObject:@"url"]){
+		if (self.delegate && [self.delegate respondsToSelector:@selector(willOpenUrl:)]) {
+			//open internal web view
+			[self.delegate willOpenUrl:theDict[@"url"]];
+		}else{
+			[[UIApplication sharedApplication] openURL:theDict[@"url"]];
+		}
+	}
 }
 
 #pragma mark - Action methods
 
 - (void)goToWebsite {
-    [[UIApplication sharedApplication] openURL:self.websiteURL];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(willOpenUrl:)]) {
+		[self.delegate willOpenUrl:self.websiteURL];
+	}else{
+		[[UIApplication sharedApplication] openURL:self.websiteURL];
+	}
 }
 
 - (void)email {

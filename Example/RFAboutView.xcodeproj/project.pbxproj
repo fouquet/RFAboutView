@@ -27,6 +27,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		C3258A287FD262F097C586A5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D904DD5374345AAAA053303C /* libPods-Tests.a */; };
+		E53CA1441B5D7A1B00F3F184 /* M2DWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CA1431B5D7A1B00F3F184 /* M2DWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		811B5F55C001F6C5592EE10B /* RFAboutView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RFAboutView.podspec; path = ../RFAboutView.podspec; sourceTree = "<group>"; };
 		C2745D66BF493349DC0CE861 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D904DD5374345AAAA053303C /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53CA1421B5D7A1B00F3F184 /* M2DWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M2DWebViewController.h; sourceTree = "<group>"; };
+		E53CA1431B5D7A1B00F3F184 /* M2DWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M2DWebViewController.m; sourceTree = "<group>"; };
 		F775DABA7985B1235E6813A9 /* libPods-RFAboutView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RFAboutView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80D33270BF3EF837413345E /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF74AE0D410B1A07AD590F45 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 		6003F593195388D20070C39A /* RFAboutView */ = {
 			isa = PBXGroup;
 			children = (
+				E53CA1421B5D7A1B00F3F184 /* M2DWebViewController.h */,
+				E53CA1431B5D7A1B00F3F184 /* M2DWebViewController.m */,
 				11DD21C91B0C9B8A00ED2919 /* RFAboutView.strings */,
 				11DD21931B0C7D3E00ED2919 /* about_header_bg.jpg */,
 				11DD21941B0C7D3E00ED2919 /* Acknowledgements.plist */,
@@ -374,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* RFAppDelegate.m in Sources */,
+				E53CA1441B5D7A1B00F3F184 /* M2DWebViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* RFViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

@@ -11,6 +11,8 @@
 
 @interface RFViewController ()
 
+@property (nonatomic, strong) M2DWebViewController *webViewController;
+
 @end
 
 @implementation RFViewController
@@ -42,15 +44,26 @@
     aboutView.headerTextColor = [UIColor whiteColor];
     aboutView.blurStyle = UIBlurEffectStyleDark;
     aboutView.headerBackgroundImage = [UIImage imageNamed:@"about_header_bg.jpg"];
-
+	aboutView.showAcknowledgements = NO;
+	[aboutView setDelegate:self];
+	
     // Add an additional button:
-    [aboutView addAdditionalButtonWithTitle:@"Privacy Policy" andContent:@"Here's the privacy policy"];
+    [aboutView addAdditionalButtonWithTitle:@"Privacy Policy" subtitle:@"subtitle" andContent:@"Here's the privacy policy"];
+	[aboutView addAdditionalButtonWithTitle:@"Test" subtitle:@"subtitle" andURL:[NSURL URLWithString:@"http://www.google.com"]];
 
     // Add the aboutView to the NavigationController:
     [aboutNavigation setViewControllers:@[aboutView]];
     
     // Present the navigation controller:
     [self presentViewController:aboutNavigation animated:YES completion:nil];
+}
+
+-(void)willOpenUrl:(NSURL *)website{
+	if(!_webViewController){
+		_webViewController = [[M2DWebViewController alloc] initWithURL:website type:M2DWebViewTypeAutoSelect];
+	}
+	[_webViewController loadURL:website];
+	[self presentViewController:_webViewController animated:YES completion:nil];
 }
 
 

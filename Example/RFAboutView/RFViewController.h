@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "M2DWebViewController.h"
+#import <RFAboutViewController.h>
 
-@interface RFViewController : UIViewController
+@interface RFViewController : UIViewController <RFAboutViewDelegate>
 
 @end
