@@ -47,7 +47,10 @@
     contentTextView.backgroundColor = [UIColor clearColor];
     contentTextView.spellCheckingType = UITextSpellCheckingTypeNo;
     
-    NSMutableDictionary *attrs = [@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.063]]} mutableCopy];
+    UIFont *theFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.063]];
+    if (self.fontLicenseText) theFont = self.fontLicenseText;
+
+    NSMutableDictionary *attrs = [@{NSFontAttributeName : theFont} mutableCopy];
     
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     paragraphStyle.hyphenationFactor = 1;

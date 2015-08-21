@@ -163,6 +163,49 @@
  */
 @property (nonatomic, strong) NSString *pubYear;
 
+/*!
+ *  Font used for the app name
+ *
+ */
+@property (nonatomic, strong) UIFont *fontAppName;
+
+/*!
+ *  Font used for the copyright information text
+ *
+ */
+@property (nonatomic, strong) UIFont *fontCopyrightInfo;
+
+/*!
+ *  Font used for the website button label
+ *
+ */
+@property (nonatomic, strong) UIFont *fontWebsiteButton;
+
+/*!
+ *  Font used for the email button label
+ *
+ */
+@property (nonatomic, strong) UIFont *fontEmailButton;
+
+/*!
+ *  Font used for the label on top of the "pods used" table
+ *
+ */
+@property (nonatomic, strong) UIFont *fontHeaderLabel;
+
+/*!
+ *  Font used for the "pods used" table cell label
+ *
+ */
+@property (nonatomic, strong) UIFont *fontTableCellText;
+
+/*!
+ *  Font used for the license text in the pod detail view
+ *
+ */
+@property (nonatomic, strong) UIFont *fontLicenseText;
+
+
 /**
  *  Protocol
  */

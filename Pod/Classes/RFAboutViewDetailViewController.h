@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, assign) BOOL showVerticalScrollingIndicator;
+@property (nonatomic, strong) UIFont *fontLicenseText;
 
 - (id)initWithDictionary:(NSDictionary *)theDict;
 

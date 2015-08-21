@@ -153,6 +153,7 @@
     UILabel *appName = [UILabel new];
     appName.translatesAutoresizingMaskIntoConstraints = NO;
     appName.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:5.625]];
+    if (self.fontAppName) appName.font = self.fontAppName;
     appName.userInteractionEnabled = NO;
     appName.numberOfLines = 0;
     appName.backgroundColor = [UIColor clearColor];
@@ -166,6 +167,7 @@
     UILabel *copyrightInfo = [UILabel new];
     copyrightInfo.translatesAutoresizingMaskIntoConstraints = NO;
     copyrightInfo.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.375]];
+    if (self.fontCopyrightInfo) copyrightInfo.font = self.fontCopyrightInfo;
     copyrightInfo.userInteractionEnabled = NO;
     copyrightInfo.numberOfLines = 0;
     copyrightInfo.textColor = self.headerTextColor;
@@ -182,6 +184,8 @@
         websiteButton.translatesAutoresizingMaskIntoConstraints = NO;
         [websiteButton setTitle:self.websiteURLTitle forState:UIControlStateNormal];
         websiteButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.375]];
+        if (self.fontWebsiteButton) websiteButton.titleLabel.font = self.fontWebsiteButton;
+
         [websiteButton setTitleColor:self.headerTextColor forState:UIControlStateNormal];
         [websiteButton addTarget:self action:@selector(goToWebsite) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:websiteButton];
@@ -192,6 +196,8 @@
         emailButton.translatesAutoresizingMaskIntoConstraints = NO;
         [emailButton setTitle:self.contactEmailTitle forState:UIControlStateNormal];
         emailButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.375]];
+        if (self.fontEmailButton) emailButton.titleLabel.font = self.fontEmailButton;
+
         [emailButton setTitleColor:self.headerTextColor forState:UIControlStateNormal];
         [emailButton addTarget:self action:@selector(email) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:emailButton];
@@ -214,6 +220,8 @@
     
     UILabel *tableHeaderLabel = [UILabel new];
     tableHeaderLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.375]];
+    if (self.fontHeaderLabel) tableHeaderLabel.font = self.fontHeaderLabel;
+
     tableHeaderLabel.translatesAutoresizingMaskIntoConstraints = NO;
     tableHeaderLabel.numberOfLines = 0;
     tableHeaderLabel.textColor = self.acknowledgementsHeaderColor;
@@ -363,6 +371,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:[self sizeForPercent:4.688]];
+        if (self.fontTableCellText) cell.textLabel.font = self.fontTableCellText;
 
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         
@@ -411,6 +420,7 @@
 		viewController.showVerticalScrollingIndicator = self.showsScrollIndicator;
 		viewController.backgroundColor = self.backgroundColor;
 		viewController.tintColor = self.tintColor;
+        viewController.fontLicenseText = self.fontLicenseText;
 		self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 		[self.navigationController pushViewController:viewController animated:YES];
 	}else if([[theDict allKeys]containsObject:@"url"]){
